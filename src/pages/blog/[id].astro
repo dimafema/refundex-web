@@ -1,0 +1,16 @@
+---
+import { getCollection, render } from "astro:content";
+import Texto from "../../layouts/Texto.astro";
+
+export async function getStaticPaths() {
+  const articulos = await getCollection("blog", ({ data }) => !data.borrador);
+  return articulos.map((articulo) => ({ params: { id: articulo.id }, props: { articulo } }));
+}
+
+const { articulo } = Astro.props;
+const { Content } = await render(articulo);
+---
+
+<Texto titulo={articulo.data.titulo} descripcion={articulo.data.descripcion}>
+  <Content />
+</Texto>

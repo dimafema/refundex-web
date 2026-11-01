@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Texto from "../../layouts/Texto.astro";
+
+const articulos = (await getCollection("blog", ({ data }) => !data.borrador)).sort(
+  (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
+);
+---
+
+<Texto titulo="Artículos" descripcion="Artículos sobre la Directriz de autoprotección 2026.">
+  {articulos.length === 0 && <p>Todavía no hay artículos.</p>}
+  <ul>
+    {articulos.map((a) => (
+      <li>
+        <a href={`/blog/${a.id}`}>{a.data.titulo}</a>: {a.data.descripcion}
+      </li>
+    ))}
+  </ul>
+</Texto>
