@@ -1,0 +1,15 @@
+---
+import Texto from "../layouts/Texto.astro";
+import { titular } from "../titular";
+---
+
+<Texto titulo="Aviso legal" descripcion="Datos del titular de refundex.es.">
+  {titular.nombre
+    ? <ul>
+        <li>Titular: {titular.nombre}</li>
+        <li>NIF: {titular.nif}</li>
+        <li>Domicilio: {titular.domicilio}</li>
+        <li>Correo: {titular.correo}</li>
+      </ul>
+    : <p>[Pendiente: datos del titular y texto legal revisado.]</p>}
+</Texto>
