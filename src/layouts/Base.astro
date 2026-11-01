@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+
+const { titulo, descripcion } = Astro.props;
+const enlaces = [
+  ["/guia", "Guía"],
+  ["/blog", "Artículos"],
+  ["/quien", "Quién está detrás"],
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="border-b border-linea">
+      <div class="max-w-4xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <a href="/" class="flex items-center gap-2 font-serif text-xl text-marino">
+          <img src="/favicon.svg" alt="" width="28" height="28" />
+          Refundex
+        </a>
+        <nav class="flex gap-4 text-sm text-gris">
+          {enlaces.map(([href, texto]) => <a class="hover:text-marino" href={href}>{texto}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main class="flex-1">
+      <slot />
+    </main>
+    <footer class="border-t border-linea text-sm text-gris">
+      <div class="max-w-4xl mx-auto px-4 py-6 flex flex-wrap gap-4">
+        <a href="/aviso-legal">Aviso legal</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/cookies">Cookies</a>
+      </div>
+    </footer>
+  </body>
+</html>

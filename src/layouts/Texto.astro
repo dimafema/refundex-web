@@ -1,0 +1,12 @@
+---
+import Base from "./Base.astro";
+
+const { titulo, descripcion } = Astro.props;
+---
+
+<Base titulo={`${titulo} · Refundex`} descripcion={descripcion}>
+  <article class="max-w-2xl mx-auto px-4 py-10 prosa">
+    <h1 class="font-serif text-3xl text-marino mb-6">{titulo}</h1>
+    <slot />
+  </article>
+</Base>

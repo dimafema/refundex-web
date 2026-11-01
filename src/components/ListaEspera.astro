@@ -1,0 +1,29 @@
+---
+const { boton = "Apuntarme" } = Astro.props;
+const url = import.meta.env.PUBLIC_LISTA_ESPERA_URL;
+---
+
+<form method="post" action={url || undefined} class="flex flex-col sm:flex-row gap-2 max-w-md">
+  <label class="sr-only" for="correo">Correo electrónico</label>
+  <input
+    id="correo"
+    name="email"
+    type="email"
+    required
+    placeholder="tu@correo.es"
+    disabled={!url}
+    class="flex-1 border border-linea rounded px-3 py-2 bg-white disabled:bg-banda"
+  />
+  <button
+    disabled={!url}
+    class="bg-marino text-white rounded px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    {boton}
+  </button>
+</form>
+{!url && <p class="text-sm text-gris mt-2">La lista de espera aún no está abierta.</p>}
+{url && (
+  <p class="text-sm text-gris mt-2">
+    Te pediremos confirmar el correo. Más detalles en la <a class="underline" href="/privacidad">política de privacidad</a>.
+  </p>
+)}

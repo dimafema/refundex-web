@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+import ListaEspera from "../components/ListaEspera.astro";
+
+const entrevistas = import.meta.env.PUBLIC_ENTREVISTAS_URL;
+const pasos = [
+  ["Subes el plan", "En Word o PDF, tal como lo tienes."],
+  ["Se ordena por capítulos", "El contenido se coloca en los capítulos del anexo II de la Directriz."],
+  ["Ves lo que falta", "Los huecos quedan señalados frente a los nuevos requisitos."],
+  ["Lo revisas en Word", "Te llevas un documento editable con los huecos marcados. Lo terminas y lo firmas tú."],
+];
+const cambios = [
+  "Riesgos del catálogo de protección civil en el análisis de riesgos",
+  "Formación para actuar con personas de alta vulnerabilidad",
+  "Procedimiento para comunicar incidentes (anexo IV)",
+  "Integración en el plan territorial o especial que corresponda",
+  "Revisión como máximo cada cinco años y simulacro anual",
+  "Inscripción en el registro con los datos del anexo III",
+];
+---
+
+<Base
+  titulo="Refundex · Adapta tus planes de autoprotección a la Directriz 2026"
+  descripcion="Herramienta para técnicos que redactan planes de autoprotección: adapta los planes del RD 393/2007 a la Directriz de 2026 sin duplicar información."
+>
+  <section class="max-w-4xl mx-auto px-4 py-14">
+    <h1 class="font-serif text-4xl sm:text-5xl text-marino leading-tight max-w-3xl">
+      Adapta tus planes de autoprotección a la Directriz 2026, sin duplicar información
+    </h1>
+    <p class="mt-5 text-lg text-gris max-w-2xl">
+      Refundex es una herramienta para los técnicos que redactan planes. Tú sigues firmando como siempre. Nosotros no redactamos ni firmamos planes.
+    </p>
+    <div class="mt-8">
+      <ListaEspera />
+    </div>
+  </section>
+
+  <section class="bg-banda">
+    <div class="max-w-4xl mx-auto px-4 py-12">
+      <h2 class="font-serif text-2xl text-marino">Hay cuatro años para revisar todo el catálogo</h2>
+      <p class="mt-3 max-w-2xl leading-relaxed">
+        La Orden INT/1068/2026, publicada en el BOE el 10 de octubre de 2026, sustituye al RD 393/2007. Los planes vigentes tienen que estar adaptados antes de octubre de 2030. Estos son algunos de los puntos que hay que comprobar en cada uno:
+      </p>
+      <ul class="mt-5 grid sm:grid-cols-2 gap-x-8 gap-y-2 list-disc pl-5">
+        {cambios.map((c) => <li>{c}</li>)}
+      </ul>
+      <p class="mt-5"><a class="text-marino underline" href="/guia">Ver la guía sobre lo que cambia</a></p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="font-serif text-2xl text-marino">Cómo funcionará</h2>
+    <ol class="mt-6 grid sm:grid-cols-2 gap-6">
+      {pasos.map(([titulo, texto], i) => (
+        <li class="border-t-2 border-marino pt-3">
+          <p class="font-semibold">{i + 1}. {titulo}</p>
+          <p class="text-gris mt-1">{texto}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-6 text-sm text-gris">Está en desarrollo. Antes de enviar texto a la IA se quitan nombres, teléfonos y correos.</p>
+  </section>
+
+  <section class="bg-banda">
+    <div class="max-w-4xl mx-auto px-4 py-12">
+      <h2 class="font-serif text-2xl text-marino">¿Redactas planes? Queremos escucharte</h2>
+      <p class="mt-3 max-w-2xl leading-relaxed">
+        Buscamos técnicos de consultoras de PRL, servicios de prevención, ingenierías y estudios de arquitectura técnica para una conversación corta sobre cómo adaptáis los planes hoy.
+      </p>
+      {entrevistas
+        ? <a class="inline-block mt-5 bg-marino text-white rounded px-4 py-2" href={entrevistas}>Reservar una entrevista</a>
+        : <p class="mt-5 text-sm text-gris">Las entrevistas aún no están abiertas.</p>}
+    </div>
+  </section>
+</Base>
