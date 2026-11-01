@@ -20,6 +20,6 @@ Web estática de Refundex (refundex.es) en Astro con Tailwind. Sirve para captar
 - Refundex vende una herramienta a quien firma los planes. No se ofrece redacción ni firma de planes.
 - Ningún texto público menciona que Diego es bombero ni su puesto. Quien está detrás se presenta por su formación técnica en emergencias, PRL y sistemas.
 - No se ofrecen precios ni se vende nada todavía.
-- Los datos del titular se rellenan en `src/titular.ts` cuando esté decidido. Mientras tanto, las páginas legales muestran que están pendientes.
+- Los datos del titular se configuran con las variables `PUBLIC_TITULAR_*`, nunca en git. Si falta alguno, las páginas legales muestran que están pendientes.
 - La lista de espera guarda los datos en la UE y usa doble confirmación. Analítica sin cookies, por ejemplo Umami autoalojado (sin instalar aún).
 - No se usa Formspree ni un correo de ninguna administración.

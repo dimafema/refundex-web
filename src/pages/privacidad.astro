@@ -1,9 +1,26 @@
 ---
 import Texto from "../layouts/Texto.astro";
-import { titular } from "../titular";
+import { titular, titularCompleto } from "../titular";
 ---
 
 <Texto titulo="Política de privacidad" descripcion="Cómo se tratan los datos personales en refundex.es.">
-  <p>[Pendiente: texto legal revisado{titular.nombre ? "" : " y datos del titular"}.]</p>
-  <p>Solo pedimos el correo para la lista de espera y la guía, con doble confirmación, y los datos se guardan en la Unión Europea.</p>
+  {titularCompleto
+    ? <>
+        <h2>Responsable</h2>
+        <p>{titular.nombre}, con NIF {titular.nif} y domicilio en {titular.domicilio}. Puedes escribir a <a href={`mailto:${titular.correo}`}>{titular.correo}</a> para cualquier asunto sobre tus datos.</p>
+        <h2>Qué datos tratamos y para qué</h2>
+        <p>Si nos escribes o aceptas hablar con nosotros, tratamos tu nombre, tus datos de contacto, tu empresa y lo que nos cuentes en la conversación. Los usamos para concertar la entrevista, mantenerla y sacar conclusiones para el estudio. No citamos tu nombre ni el de tus clientes, y te pedimos que no nos des datos de tus clientes.</p>
+        <p>Al visitar la web, el servicio de alojamiento registra datos técnicos como la dirección IP para entregar las páginas y protegerlas de abusos.</p>
+        <h2>Si te hemos escrito nosotros</h2>
+        <p>Tomamos tu contacto de una dirección profesional publicada, de tu perfil profesional o de una persona que te recomendó. Solo lo guardamos para proponerte la entrevista. Si nos dices que no te interesa, dejamos de escribirte.</p>
+        <h2>Base legal</h2>
+        <p>Si nos escribes tú, la base es tu consentimiento, que puedes retirar cuando quieras. Si te escribimos nosotros, y para los datos técnicos de la visita, es nuestro interés legítimo en hacer el estudio y en mantener la web segura. Puedes oponerte.</p>
+        <h2>Cuánto tiempo los guardamos</h2>
+        <p>Borramos los datos de contacto y las notas de la entrevista como máximo 12 meses después de la última comunicación contigo, o antes si lo pides.</p>
+        <h2>Quién más accede a los datos</h2>
+        <p>Las entrevistas y el correo los atienden personas autorizadas por la titular. También intervienen dos proveedores: Cloudflare, que aloja la web y reenvía el correo, y Google, que presta el buzón donde se recibe. Ambos pueden tratar datos fuera del Espacio Económico Europeo, con las garantías que exige el RGPD. No vendemos ni cedemos tus datos a nadie más.</p>
+        <h2>Tus derechos</h2>
+        <p>Puedes pedir acceso a tus datos, su rectificación, supresión o portabilidad, limitar su tratamiento u oponerte a él escribiendo a <a href={`mailto:${titular.correo}`}>{titular.correo}</a>. Si crees que no los hemos tratado bien, puedes reclamar ante la <a href="https://www.aepd.es">Agencia Española de Protección de Datos</a>.</p>
+      </>
+    : <p>[Pendiente: datos del titular.]</p>}
 </Texto>
