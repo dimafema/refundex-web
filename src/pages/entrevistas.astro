@@ -1,0 +1,22 @@
+---
+import Texto from "../layouts/Texto.astro";
+
+const entrevistas = import.meta.env.PUBLIC_ENTREVISTAS_URL;
+---
+
+<Texto
+  titulo="¿Redactas planes de autoprotección?"
+  descripcion="Buscamos técnicos para una conversación de 30 minutos sobre cómo se gestionan los planes de autoprotección."
+>
+  <p>Estamos estudiando cómo se gestionan los planes de autoprotección una vez firmados y cómo se está afrontando la adaptación a la nueva Directriz. Queremos entenderlo hablando con quienes lo hacen.</p>
+  <p>Son 30 minutos por videollamada o teléfono. No vendemos nada en la conversación y no citaremos tu nombre ni el de tus clientes. A cambio, te contamos lo que vayamos aprendiendo.</p>
+  <h2>A quién buscamos</h2>
+  <ul>
+    <li>Técnicos de consultoras de PRL y servicios de prevención ajenos</li>
+    <li>Ingenierías y estudios de arquitectura técnica que redacten planes</li>
+    <li>Responsables de seguridad de residencias, hospitales o colegios</li>
+  </ul>
+  {entrevistas
+    ? <p><a href={entrevistas}>Quiero hablar con vosotros</a></p>
+    : <p>Las entrevistas aún no están abiertas.</p>}
+</Texto>
