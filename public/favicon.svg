@@ -1,0 +1,5 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <line x1="6" y1="36" x2="42" y2="36" stroke="#1f2d4d" stroke-width="2.6"/>
+  <line x1="30" y1="36" x2="30" y2="26" stroke="#1f2d4d" stroke-width="2.6"/>
+  <path d="M30 12 L22 26 L38 26 Z" stroke="#1f2d4d" stroke-width="2.6" stroke-linejoin="miter"/>
+</svg>

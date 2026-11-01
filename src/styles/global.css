@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-marino: #1f2d4d;
+  --color-tinta: #1c2230;
+  --color-gris: #5a6372;
+  --color-linea: #dfe2e7;
+  --color-banda: #f4f5f7;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+body {
+  color: var(--color-tinta);
+  background: #fff;
+}
+
+.prosa h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.prosa p,
+.prosa ul {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+
+.prosa ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.prosa a {
+  color: var(--color-marino);
+  text-decoration: underline;
+}
